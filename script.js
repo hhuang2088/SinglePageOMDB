@@ -32,7 +32,11 @@ $(document).ready(function(){
       })
       moviePoster.done(function(data){
         $('#poster').html("");
-        $('#poster').append("<img src='"+ data["Poster"]+"'/>");
+          if(data["Poster"] === "N/A") {
+            $('#poster').append("No image Available");
+        } else {
+            $('#poster').append("<img src='"+ data["Poster"]+"'/>");
+        }
       })
   });
 
